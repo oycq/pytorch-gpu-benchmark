@@ -120,5 +120,5 @@ if __name__ == '__main__':
     inference=arr_inference()
 
 
-    total_model(train,device_name)
-    total_model(inference,device_name)
+    total_model(train,device_name + " Train")
+    total_model(inference,device_name + "Inference")

@@ -29,12 +29,8 @@ def total_model(arr,device_name):
     type=arr[0].split('/')[-1].split('_')[3]
     n_groups = 15
 
-    double=pd.read_csv(arr[0])
-    half=pd.read_csv(arr[1])
-    single=pd.read_csv(arr[2])
-
-    means_double =double.mean().values
-    std_double =double.std().values
+    half=pd.read_csv(arr[0])
+    single=pd.read_csv(arr[1])
 
     means_half =half.mean().values
     std_half =half.std().values
@@ -50,11 +46,6 @@ def total_model(arr,device_name):
     opacity = 0.4
     error_config = {'ecolor': '0.3'}
 
-    rects1 = ax.bar(index, means_double, bar_width,
-                    alpha=opacity, color='b',
-                    yerr=std_double, error_kw=error_config,
-                    label='double')
-
     rects2 = ax.bar(index + bar_width, means_half, bar_width,
                     alpha=opacity, color='r',
                     yerr=std_half, error_kw=error_config,
@@ -69,12 +60,12 @@ def total_model(arr,device_name):
     ax.set_ylabel('times(ms)')
     ax.set_title("total_"+type+"_"+model_name)
     ax.set_xticks(index + bar_width / 2)
-    ax.set_xticklabels(double.columns,rotation=60, fontsize=9)
+    ax.set_xticklabels(single.columns,rotation=60, fontsize=9)
 
     ax.legend()
 
     fig.tight_layout()
-    plt.savefig(device_name+'total.png',dpi=400)
+    plt.savefig(device_name+'_total.png',dpi=400)
 
 
 

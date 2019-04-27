@@ -1,0 +1,25 @@
+apt source:
+https://blog.csdn.net/zhangjiahao14/article/details/80554616
+
+pip source:
+https://blog.csdn.net/lambert310/article/details/52412059
+
+install nvidia-driver
+sudo apt-get install nvidia-driver-390
+
+install cuda
+sudo apt install nvidia-cuda-toolkit gcc-6
+nvcc --version
+
+install pytorch:
+pip install torch torchvision
+
+install python3-tk 
+sudo apt-get install python3-tk 
+
+fan speed control
+nvidia-settings -a '[gpu:0]/GPUFanControlState=1'
+nvidia-xconfig --cool-bits=4
+
+get memory info
+sudo dmidecode --type memory
